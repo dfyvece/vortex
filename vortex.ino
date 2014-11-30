@@ -107,6 +107,36 @@ animation(pulse) = {
   frame(0) 
 };
 
+animation(squares) = {
+  frame(4,
+    polygon(4,PRIMARY,
+      point(0,0),
+      point(50,0),
+      point(50,50),
+      point(0,50)
+    ),
+    polygon(4,TERTIARY,
+      point(50,0),
+      point(100,0),
+      point(100,50),
+      point(50,50)
+    ),
+    polygon(4,SECONDARY,
+      point(50,50),
+      point(100,50),
+      point(100,100),
+      point(50,100)
+    ),
+    polygon(4,QUAD,
+      point(0,50),
+      point(50,50),
+      point(50,100),
+      point(0,100)
+    )
+  ),
+  frame(0)   
+};
+
 animation(spiral) = {
   frame(4,
     polygon(4, PRIMARY,
@@ -841,8 +871,16 @@ void execute(String commline) {
     rev ^= 1;
   }
   
+  else if (comm.equalsIgnoreCase("delay")) {
+    Bluetooth.println("Waiting");
+    delay(duration);
+    Bluetooth.println("Done");
+  }
+  
   check_animation(pulse)
   check_animation(spiral)
+  check_animation(squares)
+
   
   else {
     Bluetooth.println("Received unknown command");

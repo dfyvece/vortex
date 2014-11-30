@@ -25,12 +25,37 @@ spiral *duration* *color1* *color2* *color3* *color4*
  
 *color2*, *color3*, and *color4* are optional.
 
+*color1* and *color2* compliment each other
+*color3* and *color4* compliment each other
+
+
+###Squares
+
+Separate the lights into four quadrants
+
+```
+squares *duration* *color1* *color2* *color3* *color4*
+```
+
+*color1* is UL quadrant
+*color2* is LR quadrant
+*color3* is UR quadrant
+*color4* is LL quadrant
+
 ##Commands
 Commands are in format:
 ```
 *command* *param1* *param2* ... *paramN*
 ```
 Commands allow you to easily perform more complex interactions.
+
+###Delay
+
+Wait the specified amount of time in milliseconds
+
+```
+delay *duration*
+```
 
 ###Repeat
 
@@ -62,6 +87,7 @@ You can specify any of the following colors by name:
 * Green
 * Blue
 * Purple
+* Off
 
 You can also do custom colors in the format:
 ```
