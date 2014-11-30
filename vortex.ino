@@ -108,145 +108,457 @@ animation(pulse) = {
 };
 
 animation(spiral) = {
-  frame(1,
+  frame(4,
     polygon(4, PRIMARY,
       point(0,20),
       point(0,0),
       point(20,0),
       point(50,50)
-    )
-  ),
-  frame(1,
-    polygon(3, PRIMARY,
-      point(20,0),
-      point(35,0),
-      point(50,50)
-    )
-  ),
-  frame(1,
-    polygon(3, PRIMARY,
-      point(35,0),
-      point(50,0),
-      point(50,50)
-    )
-  ),
-  frame(1,
-    polygon(3,PRIMARY,
-      point(50,0),
-      point(65,0),
-      point(50,50)
-    )
-  ),
-  frame(1,
-    polygon(3,PRIMARY,
-      point(65,0),
+    ),
+    polygon(4, TERTIARY,
       point(80,0),
-      point(50,50)
-    )
-  ),
-  frame(1,
-    polygon(4,PRIMARY,
-      point(80,0),
-      point(100,100),
+      point(100,0),
       point(100,20),
       point(50,50)
-    )
-  ),
-  frame(1,
-    polygon(3,PRIMARY,
-      point(100,20),
-      point(100,35),
-      point(50,50)
-    )
-  ),
-  frame(1,
-    polygon(3,PRIMARY,
-      point(100,35),
-      point(100,50),
-      point(50,50)
-    )
-  ),
-  frame(1,
-    polygon(3,PRIMARY,
-      point(100,50),
-      point(100,65),
-      point(50,50)
-    )
-  ),
-  frame(1,
-    polygon(3,PRIMARY,
-      point(100,65),
-      point(100,80),
-      point(50,50)
-    )
-  ),
-  frame(1,
-    polygon(4,PRIMARY,
+    ),
+    polygon(4, SECONDARY,
       point(100,80),
       point(100,100),
       point(80,100),
       point(50,50)
-    )
-  ),
-  frame(1,
-    polygon(3,PRIMARY,
-      point(80,100),
-      point(65,100),
-      point(50,50)
-    )
-  ),
-  frame(1,
-    polygon(3,PRIMARY,
-      point(65,100),
-      point(50,100),
-      point(50,50)
-    )
-  ),
-  frame(1,
-    polygon(3,PRIMARY,
-      point(50,100),
-      point(35,100),
-      point(50,50)
-    )
-  ),
-  frame(1,
-    polygon(3,PRIMARY,
-      point(35,100),
-      point(20,100),
-      point(50,50)
-    )
-  ),
-  frame(1,
-    polygon(4,PRIMARY,
+    ),
+    polygon(4, QUAD,
       point(20,100),
       point(0,100),
       point(0,80),
       point(50,50)
     )
   ),
-  frame(1,
-    polygon(3,PRIMARY,
+  frame(4,
+    polygon(3, PRIMARY,
+      point(20,0),
+      point(35,0),
+      point(50,50)
+    ),
+    polygon(3, TERTIARY,
+      point(100,20),
+      point(100,35),
+      point(50,50)
+    ),
+    polygon(3, SECONDARY,
+      point(80,100),
+      point(65,100),
+      point(50,50)
+    ),
+    polygon(3, QUAD,
       point(0,80),
       point(0,65),
       point(50,50)
     )
   ),
-  frame(1,
-    polygon(3,PRIMARY,
+  frame(4,
+    polygon(3, PRIMARY,
+      point(35,0),
+      point(50,0),
+      point(50,50)
+    ),
+    polygon(3, TERTIARY,
+      point(100,35),
+      point(100,50),
+      point(50,50)
+    ),
+    polygon(3, SECONDARY,
+      point(65,100),
+      point(50,100),
+      point(50,50)
+    ),
+    polygon(3, QUAD,
       point(0,65),
       point(0,50),
       point(50,50)
     )
   ),
-  frame(1,
+  frame(4,
     polygon(3,PRIMARY,
+      point(50,0),
+      point(65,0),
+      point(50,50)
+    ),
+    polygon(3, TERTIARY,
+      point(100,50),
+      point(100,65),
+      point(50,50)
+    ),
+    polygon(3, SECONDARY,
+      point(50,100),
+      point(35,100),
+      point(50,50)
+    ),
+    polygon(3, QUAD,
       point(0,50),
       point(0,35),
       point(50,50)
     )
   ),
-  frame(1,
+  frame(4,
     polygon(3,PRIMARY,
+      point(65,0),
+      point(80,0),
+      point(50,50)
+    ),
+    polygon(3, TERTIARY,
+      point(100,65),
+      point(100,80),
+      point(50,50)
+    ),
+    polygon(3, SECONDARY,
+      point(35,100),
+      point(20,100),
+      point(50,50)
+    ),
+    polygon(3, QUAD,
+      point(0,35),
+      point(0,20),
+      point(50,50)
+    )
+  ),
+  frame(4,
+    polygon(4, QUAD,
+      point(0,20),
+      point(0,0),
+      point(20,0),
+      point(50,50)
+    ),
+    polygon(4, PRIMARY,
+      point(80,0),
+      point(100,0),
+      point(100,20),
+      point(50,50)
+    ),
+    polygon(4, TERTIARY,
+      point(100,80),
+      point(100,100),
+      point(80,100),
+      point(50,50)
+    ),
+    polygon(4, SECONDARY,
+      point(20,100),
+      point(0,100),
+      point(0,80),
+      point(50,50)
+    )
+  ),
+  frame(4,
+    polygon(3, QUAD,
+      point(20,0),
+      point(35,0),
+      point(50,50)
+    ),
+    polygon(3, PRIMARY,
+      point(100,20),
+      point(100,35),
+      point(50,50)
+    ),
+    polygon(3, TERTIARY,
+      point(80,100),
+      point(65,100),
+      point(50,50)
+    ),
+    polygon(3, SECONDARY,
+      point(0,80),
+      point(0,65),
+      point(50,50)
+    )
+  ),
+  frame(4,
+    polygon(3, QUAD,
+      point(35,0),
+      point(50,0),
+      point(50,50)
+    ),
+    polygon(3, PRIMARY,
+      point(100,35),
+      point(100,50),
+      point(50,50)
+    ),
+    polygon(3, TERTIARY,
+      point(65,100),
+      point(50,100),
+      point(50,50)
+    ),
+    polygon(3, SECONDARY,
+      point(0,65),
+      point(0,50),
+      point(50,50)
+    )
+  ),
+  frame(4,
+    polygon(3,QUAD,
+      point(50,0),
+      point(65,0),
+      point(50,50)
+    ),
+    polygon(3, PRIMARY,
+      point(100,50),
+      point(100,65),
+      point(50,50)
+    ),
+    polygon(3, TERTIARY,
+      point(50,100),
+      point(35,100),
+      point(50,50)
+    ),
+    polygon(3, SECONDARY,
+      point(0,50),
+      point(0,35),
+      point(50,50)
+    )
+  ),
+  frame(4,
+    polygon(3,QUAD,
+      point(65,0),
+      point(80,0),
+      point(50,50)
+    ),
+    polygon(3, PRIMARY,
+      point(100,65),
+      point(100,80),
+      point(50,50)
+    ),
+    polygon(3, TERTIARY,
+      point(35,100),
+      point(20,100),
+      point(50,50)
+    ),
+    polygon(3, SECONDARY,
+      point(0,35),
+      point(0,20),
+      point(50,50)
+    )
+  ),
+  frame(4,
+    polygon(4, SECONDARY,
+      point(0,20),
+      point(0,0),
+      point(20,0),
+      point(50,50)
+    ),
+    polygon(4, QUAD,
+      point(80,0),
+      point(100,0),
+      point(100,20),
+      point(50,50)
+    ),
+    polygon(4, PRIMARY,
+      point(100,80),
+      point(100,100),
+      point(80,100),
+      point(50,50)
+    ),
+    polygon(4, TERTIARY,
+      point(20,100),
+      point(0,100),
+      point(0,80),
+      point(50,50)
+    )
+  ),
+  frame(4,
+    polygon(3, SECONDARY,
+      point(20,0),
+      point(35,0),
+      point(50,50)
+    ),
+    polygon(3, QUAD,
+      point(100,20),
+      point(100,35),
+      point(50,50)
+    ),
+    polygon(3, PRIMARY,
+      point(80,100),
+      point(65,100),
+      point(50,50)
+    ),
+    polygon(3, TERTIARY,
+      point(0,80),
+      point(0,65),
+      point(50,50)
+    )
+  ),
+  frame(4,
+    polygon(3, SECONDARY,
+      point(35,0),
+      point(50,0),
+      point(50,50)
+    ),
+    polygon(3, QUAD,
+      point(100,35),
+      point(100,50),
+      point(50,50)
+    ),
+    polygon(3, PRIMARY,
+      point(65,100),
+      point(50,100),
+      point(50,50)
+    ),
+    polygon(3, TERTIARY,
+      point(0,65),
+      point(0,50),
+      point(50,50)
+    )
+  ),
+  frame(4,
+    polygon(3,SECONDARY,
+      point(50,0),
+      point(65,0),
+      point(50,50)
+    ),
+    polygon(3, QUAD,
+      point(100,50),
+      point(100,65),
+      point(50,50)
+    ),
+    polygon(3, PRIMARY,
+      point(50,100),
+      point(35,100),
+      point(50,50)
+    ),
+    polygon(3, TERTIARY,
+      point(0,50),
+      point(0,35),
+      point(50,50)
+    )
+  ),
+  frame(4,
+    polygon(3,SECONDARY,
+      point(65,0),
+      point(80,0),
+      point(50,50)
+    ),
+    polygon(3, QUAD,
+      point(100,65),
+      point(100,80),
+      point(50,50)
+    ),
+    polygon(3, PRIMARY,
+      point(35,100),
+      point(20,100),
+      point(50,50)
+    ),
+    polygon(3, TERTIARY,
+      point(0,35),
+      point(0,20),
+      point(50,50)
+    )
+  ),
+  frame(4,
+    polygon(4, TERTIARY,
+      point(0,20),
+      point(0,0),
+      point(20,0),
+      point(50,50)
+    ),
+    polygon(4, SECONDARY,
+      point(80,0),
+      point(100,0),
+      point(100,20),
+      point(50,50)
+    ),
+    polygon(4, QUAD,
+      point(100,80),
+      point(100,100),
+      point(80,100),
+      point(50,50)
+    ),
+    polygon(4, PRIMARY,
+      point(20,100),
+      point(0,100),
+      point(0,80),
+      point(50,50)
+    )
+  ),
+  frame(4,
+    polygon(3, TERTIARY,
+      point(20,0),
+      point(35,0),
+      point(50,50)
+    ),
+    polygon(3, SECONDARY,
+      point(100,20),
+      point(100,35),
+      point(50,50)
+    ),
+    polygon(3, QUAD,
+      point(80,100),
+      point(65,100),
+      point(50,50)
+    ),
+    polygon(3, PRIMARY,
+      point(0,80),
+      point(0,65),
+      point(50,50)
+    )
+  ),
+  frame(4,
+    polygon(3, TERTIARY,
+      point(35,0),
+      point(50,0),
+      point(50,50)
+    ),
+    polygon(3, SECONDARY,
+      point(100,35),
+      point(100,50),
+      point(50,50)
+    ),
+    polygon(3, QUAD,
+      point(65,100),
+      point(50,100),
+      point(50,50)
+    ),
+    polygon(3, PRIMARY,
+      point(0,65),
+      point(0,50),
+      point(50,50)
+    )
+  ),
+  frame(4,
+    polygon(3,TERTIARY,
+      point(50,0),
+      point(65,0),
+      point(50,50)
+    ),
+    polygon(3, SECONDARY,
+      point(100,50),
+      point(100,65),
+      point(50,50)
+    ),
+    polygon(3, QUAD,
+      point(50,100),
+      point(35,100),
+      point(50,50)
+    ),
+    polygon(3, PRIMARY,
+      point(0,50),
+      point(0,35),
+      point(50,50)
+    )
+  ),
+  frame(4,
+    polygon(3,TERTIARY,
+      point(65,0),
+      point(80,0),
+      point(50,50)
+    ),
+    polygon(3, SECONDARY,
+      point(100,65),
+      point(100,80),
+      point(50,50)
+    ),
+    polygon(3, QUAD,
+      point(35,100),
+      point(20,100),
+      point(50,50)
+    ),
+    polygon(3, PRIMARY,
       point(0,35),
       point(0,20),
       point(50,50)
@@ -254,8 +566,6 @@ animation(spiral) = {
   ),
   frame(0)
 };
-
-
 
 // ANIMATION LIBRARY FUNCTIONS
 
@@ -302,6 +612,11 @@ void animate(animation(x), int duration, CRGB c0 = CRGB::Black,
     frame ss = x[(rev*(frs-1 -k-k)+k)];
     Bluetooth.print("frame: ");
     Bluetooth.println(k);
+    
+    // clear leds from last frame
+    for(int i = 0; i < NUM_LEDS; ++i)
+        leds[i] = CRGB::Black;
+        
     for(int s = 0; s < ss.n; ++s) {  // for each shape
       polygon ps = ss.ps[s];
       for(int i = 0; i < NUM_LEDS; ++i) {  // for each led
@@ -314,7 +629,6 @@ void animate(animation(x), int duration, CRGB c0 = CRGB::Black,
           ys[j] = ps.ps[j].y;
         }
         
-        leds[i] = CRGB::Black;
         if (pnpoly(ps.n, xs, ys, testx, testy)) {
           
           Bluetooth.print("Point (");
