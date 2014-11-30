@@ -1,13 +1,11 @@
 #README
 
-##Protocol Instructions:
-
-Commands are in format:
+##Animations:
+Animations are in format:
 ```
-*command* *param1* *param2* ... *paramN*
+*animation_name* *duration* *param1* ... *paramN*
 ```
-
-All commands are sent in plaintext over bluetooth connection
+All durations are in milliseconds.
 
 ###Pulse
 
@@ -27,6 +25,13 @@ spiral *duration* *color1* *color2* *color3* *color4*
  
 *color2*, *color3*, and *color4* are optional.
 
+##Commands
+Commands are in format:
+```
+*command* *param1* *param2* ... *paramN*
+```
+Commands allow you to easily perform more complex interactions.
+
 ###Repeat
 
 Repeat a series of commands the specified number of *times*
@@ -37,6 +42,16 @@ repeat *times*
 *command2*
 repeat end
 ```
+
+###Reverse
+
+Reverse the order that an animation is performed.
+
+```
+reverse *command*
+```
+Note: *reverse repeat x* will not work, you must reverse the order that the commands are sent
+
 
 ##Colors
 

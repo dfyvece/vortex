@@ -270,6 +270,8 @@ int pnpoly(int nvert, float *vertx, float *verty, float testx, float testy) {
   return c;
 }
 
+int rev;
+
 // count the number of frames in an animation
 int frames(animation(x)) {
   int k = 0;
@@ -297,7 +299,7 @@ void animate(animation(x), int duration, CRGB c0 = CRGB::Black,
   Bluetooth.print("Found this many frames: ");
   Bluetooth.println(frs);
   for (int k = 0; k < frs; ++k) { // for each frame
-    frame ss = x[k];
+    frame ss = x[(rev*(frs-1 -k-k)+k)];
     Bluetooth.print("frame: ");
     Bluetooth.println(k);
     for(int s = 0; s < ss.n; ++s) {  // for each shape
@@ -389,6 +391,7 @@ void setup() {
       
       Bluetooth.begin(9600);
       repeat = 0;
+      rev = 0;
       
     /*
       LED_MATRIX
@@ -515,6 +518,13 @@ void execute(String commline) {
       times = duration;
       repeat = 1;
     }
+  }
+  else if (comm.equalsIgnoreCase("reverse")) {
+    String param = original;
+    getline(param); // remove the word 'reverse'
+    rev ^= 1;
+    execute(param);
+    rev ^= 1;
   }
   
   check_animation(pulse)
