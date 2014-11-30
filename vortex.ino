@@ -775,6 +775,9 @@ CRGB to_color(String col) {
     return CRGB::Yellow;
   if (col.equalsIgnoreCase("purple"))
     return CRGB::Purple;
+  if (col.equalsIgnoreCase("off") || col.equalsIgnoreCase("black"))
+    return CRGB::Black;
+
   
   String trash = getline(col,'(');
   String p1 = getline(col,',');
