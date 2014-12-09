@@ -1,12 +1,15 @@
 #include "FastLED.h"
 
+//#define DEBUGGING 1
+
+
 // How many leds in your strip?
-#define NUM_LEDS 4
+#define NUM_LEDS 60
 
 // For led chips like Neopixels, which have a data line, ground, and power, you just
 // need to define DATA_PIN.  For led chipsets that are SPI based (four wires - data, clock,
 // ground, and power), like the LPD8806 define both DATA_PIN and CLOCK_PIN
-#define DATA_PIN 11
+#define DATA_PIN 4
 #define CLOCK_PIN 12
 
 // Define the array of leds
@@ -628,20 +631,27 @@ void animate(animation(x), int duration, CRGB c0 = CRGB::Black,
                                          CRGB c5 = CRGB::Black,
                                          CRGB c6 = CRGB::Black,
                                          CRGB c7 = CRGB::Black) {
-                                           
+   
+  #ifdef DEBUGGING                                     
   Bluetooth.println("Begin animation");
+  #endif
+  digitalWrite(13,HIGH);
+
 
   int frs = frames(x);
   int del = duration / frs;
   
   // execute each frame
-  
+  #ifdef DEBUGGING 
   Bluetooth.print("Found this many frames: ");
   Bluetooth.println(frs);
+  #endif
   for (int k = 0; k < frs; ++k) { // for each frame
     frame ss = x[(rev*(frs-1 -k-k)+k)];
+    #ifdef DEBUGGING 
     Bluetooth.print("frame: ");
     Bluetooth.println(k);
+    #endif
     
     // clear leds from last frame
     for(int i = 0; i < NUM_LEDS; ++i)
@@ -661,28 +671,38 @@ void animate(animation(x), int duration, CRGB c0 = CRGB::Black,
         
         if (pnpoly(ps.n, xs, ys, testx, testy)) {
           
+          #ifdef DEBUGGING 
           Bluetooth.print("Point (");
           Bluetooth.print(testx);
           Bluetooth.print(",");
           Bluetooth.print(testy);
           Bluetooth.print(") --> ");
+          #endif
           // turn this led on
           switch(ps.group) {
             case PRIMARY:
-              leds[i] = c0;        
+              leds[i] = c0;   
+              #ifdef DEBUGGING      
               Bluetooth.println("PRIMARY");
+              #endif
               break;
             case SECONDARY:
               leds[i] = c1;
+              #ifdef DEBUGGING 
               Bluetooth.println("SECONDARY");
+              #endif
               break;
             case TERTIARY:
               leds[i] = c2;
+              #ifdef DEBUGGING 
               Bluetooth.println("TERTIARY");
+              #endif
               break;
             case QUAD:
               leds[i] = c3;
+              #ifdef DEBUGGING 
               Bluetooth.println("QUAD");
+              #endif
               break;
           }         
 
@@ -693,7 +713,11 @@ void animate(animation(x), int duration, CRGB c0 = CRGB::Black,
     delay(del);
   }
   
+  #ifdef DEBUGGING 
   Bluetooth.println("End animation");
+  #endif
+  digitalWrite(13,LOW);
+
 
   
   // turn off leds
@@ -736,15 +760,30 @@ void setup() {
       Bluetooth.begin(9600);
       repeat = 0;
       rev = 0;
+      pinMode(13,OUTPUT);
+      digitalWrite(13,HIGH);
+      delay(1000);
+      digitalWrite(13,LOW);
+
+      
       
     /*
       LED_MATRIX
       define led locations here
      */
-    led_matrix[0] = point(1,1);
-    led_matrix[1] = point(80,80);
-    led_matrix[2] = point(5,5);
-    led_matrix[3] = point(80,10);
+    for(int i = 0; i < 15; ++i) {
+      led_matrix[i] = point(2+i*97.0/14.0,0);
+    }
+    for(int i = 0; i < 15; ++i) {
+      led_matrix[i+15] = point(99,2+i*97.0/14.0);
+    }
+    for(int i = 0; i < 15; ++i) {
+      led_matrix[i+30] = point(99-i*97.0/14.0,99);
+    }
+    for(int i = 0; i < 15; ++i) {
+      led_matrix[i+45] = point(0,99-i*97.0/14.0);
+    }
+
       
 }
 
@@ -762,7 +801,18 @@ String getline(String& line, char delim = ' ') {
     return result;
 }
 
+
 CRGB to_color(String col) {
+  CRGB color = to_color_help(col);
+  
+  int temp = color.r;
+  color.r = color.g;
+  color.g = temp;
+  
+  return color;
+  
+}
+CRGB to_color_help(String col) {
   if (col.equalsIgnoreCase("red"))    
     return CRGB::Red;
   if (col.equalsIgnoreCase("green"))
@@ -791,12 +841,14 @@ CRGB to_color(String col) {
     int b = p3.toInt();
     
     CRGB color;
+    #ifdef DEBUGGING 
     Bluetooth.print("Got custom color R:");
     Bluetooth.print(r);
     Bluetooth.print(", G:");
     Bluetooth.print(g);
     Bluetooth.print(", B:");
     Bluetooth.println(b);
+    #endif
   
     color.setRGB(r,g,b);
     
@@ -812,8 +864,6 @@ CRGB to_color(String col) {
 #define xstr(s) str(s)
 #define str(s) #s
 #define check_animation(name) else if (comm.equalsIgnoreCase(str(name))) {\
-    Bluetooth.print("Received ");\
-    Bluetooth.println(str(name));\
     if (repeat)\
       commands[repeat++-1] = original;\
     else\
@@ -851,20 +901,31 @@ void execute(String commline) {
       int num_repeats = times;
       repeat = 0;
       
+      #ifdef DEBUGGING 
       Bluetooth.println("Executing repeat sequence");
+      #endif
       for(int i = 0; i < num_repeats; ++i) {
+        #ifdef DEBUGGING 
         Bluetooth.print("Repetition: ");
         Bluetooth.println(i);
+        #endif
         for(int j = 0; j < num_actions; ++j)
           execute(commands[j]);
       }
+      #ifdef DEBUGGING 
       Bluetooth.println("Finish executing repeat");
+      #endif
     }
     else {
+      #ifdef DEBUGGING 
       Bluetooth.println("Starting repeat sequence");
+      #endif
       times = duration;
       repeat = 1;
     }
+  }
+  else if (repeat >= 1) {
+    commands[repeat++-1] = original;
   }
   else if (comm.equalsIgnoreCase("reverse")) {
     String param = original;
@@ -875,9 +936,13 @@ void execute(String commline) {
   }
   
   else if (comm.equalsIgnoreCase("delay")) {
+    #ifdef DEBUGGING 
     Bluetooth.println("Waiting");
+    #endif
     delay(duration);
+    #ifdef DEBUGGING 
     Bluetooth.println("Done");
+    #endif
   }
   
   check_animation(pulse)
@@ -896,8 +961,10 @@ void loop() {
   if (Bluetooth.available() > 0) {
 
     Bluetooth.readBytesUntil(10, buff, 255);
+    #ifdef DEBUGGING 
     Bluetooth.print("Received line: ");
     Bluetooth.println(buff);
+    #endif
     
     String buffer = String(buff);
     
